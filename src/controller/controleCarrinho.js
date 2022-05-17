@@ -16,7 +16,7 @@ class ControleCarrinho{
     }
 
 
-    static async addCarrinho(dadosProduto,qtd){
+    static async addCarrinho(dadosProduto){
         const resposta = await fetch(`${this.URL}/add`,{
             method: "POST",
             headers:{
@@ -26,10 +26,8 @@ class ControleCarrinho{
             body:JSON.stringify(dadosProduto)
         })
         .then(resposta => resposta.json())
-        .then(resposta => {
-            resposta.quantity = qtd
-        })
-        .catch(err => console.log(err))
+        .then(resposta =>resposta)
+        .catch(err => console.error(err))
 
         return resposta
     }
