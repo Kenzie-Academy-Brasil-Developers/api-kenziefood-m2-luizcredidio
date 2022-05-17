@@ -14,10 +14,19 @@ class controleUsuario{
           })
           .then((res) => res.json())
           .then((res) => {
-            window.location = './../../index.html'
-            return res
+            if(res.status != 'Error'){
+              window.location = './login.html'
+            console.log(res) 
+            }else{
+              const caixaErro = document.querySelector('.caixa_erro')
+              caixaErro.classList.remove('hide')
+
+              const textoErro = document.querySelector('.texto_erro')
+              textoErro.innerText = res.message
+            }
+            
           })
-          .catch((error) => console.log(error));
+          .catch((error) => console.error(error));
         return response;
     }
 
@@ -34,12 +43,13 @@ class controleUsuario{
               if(res.length > 0){
                 localStorage.setItem("Token", res)
                 window.location = `./../../index.html`
-              }else{const caixaErro = document.querySelector('.caixa_erro')
-              caixaErro.classList.remove('hide')
+              }else{
+                const caixaErro = document.querySelector('.caixa_erro')
+                caixaErro.classList.remove('hide')
 
-              const textoErro = document.querySelector('.texto_erro')
-              textoErro.innerText = res.error
-            } 
+                const textoErro = document.querySelector('.texto_erro')
+                textoErro.innerText = res.error
+              } 
           })
           .catch((error) => console.error(error));
     }
