@@ -1,4 +1,4 @@
-import {controleUsuario} from './../controller/controleUsuario.js'
+import {ControleUsuario} from './../controller/controleUsuario.js'
 
 
 const formLogin = document.getElementById("form_login");
@@ -9,7 +9,7 @@ function logarUsuario(event) {
     event.preventDefault();
 
     const dados = recebeDados(event);
-    controleUsuario.login(dados)
+    ControleUsuario.login(dados)
 }
 
 function recebeDados(event) {
