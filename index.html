@@ -1,12 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/reset.css">
+
+    <title>Página inicial</title>
+
 </head>
+
 <body>
-    
+    <!--Cabeçalho e navegacao-->
+
+    <header class="header">
+        <section class="logo">
+            <h1 id="logo-kenzie">Kenzie</h1>
+            <h2 id="logo-food">Food</h2>
+        </section>
+
+        <div class="pesquizar-por-nome">
+            <!-- barra pesquizar -->
+            <input type="text" placeholder="Nome do produto" class="campo-pesquisar-por-nome" id="texto-busca">
+            <button class="botao-padrao botao-padrao--pesquisar-por-nome" id="botao-pesquisar">Pesquizar</button>
+
+        </div>
+    </header>
+
+    <section class="menu-navegacao">
+        <!-- menu de navegacao -->
+        <nav class="barra-navegacao">
+            <ul id="lista-navegacao">
+                <li data-tag="todos" class="lista-navegacao ativa">Todos</li>
+                <li data-tag="panificadora" class="lista-navegacao">Panificadora</li>
+                <li data-tag="frutas" class="lista-navegacao">Frutas</li>
+                <li data-tag="bebidas" class="lista-navegacao">Bebidas</li>
+            </ul>
+        </nav>
+    </section>
+
+    <main>
+        <div class="caixa-lista-produtos" id="lista-produtos">
+            <ul>
+                <!-- lista de produtos -->
+            </ul>
+        </div>
+
+        <div id="carrinho" class="caixa-carrinho">
+            <h1>Carrinho</h1>
+            <ul class="caixa-produtos">
+                <!-- produtos no carrinho -->
+
+            </ul>
+
+            <div class="caixa-quantidade-total">
+                <!-- quantidade de itens no carrinho -->
+                <p>Quantidade: <span id="quantidade-total">0</span></p>
+            </div>
+
+            <div class="caixa-valor-total">
+                <!-- valor total a ser pago -->
+                <p>Preço total: R$<span id="valor-total">00.00</span></p>
+            </div>
+        </div>
+    </main>
+
+
+
 </body>
+
 </html>
