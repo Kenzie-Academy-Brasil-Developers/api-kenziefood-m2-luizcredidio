@@ -16,7 +16,6 @@ class ControleUsuario{
           .then((res) => {
             if(res.status != 'Error'){
               window.location = './login.html'
-            console.log(res) 
             }else{
               const caixaErro = document.querySelector('.caixa_erro')
               caixaErro.classList.remove('hide')
@@ -26,7 +25,7 @@ class ControleUsuario{
             }
             
           })
-          .catch((error) => console.error(error));
+          .catch((error) => console.error(error))
         return response;
     }
 
@@ -51,7 +50,7 @@ class ControleUsuario{
                 textoErro.innerText = res.error
               } 
           })
-          .catch((error) => console.error(error));
+          .catch((error) => console.error(error))
     }
 }
 

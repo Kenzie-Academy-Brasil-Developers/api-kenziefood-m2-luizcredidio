@@ -11,7 +11,7 @@ class ControleProdutos{
         })
         .then(resposta => resposta.json())
         .then(resposta => resposta)
-        .catch(err => console.error(err));
+        .catch(err => console.error(err))
     }
 
     static mostrarProdutosPrivados() {
@@ -25,7 +25,7 @@ class ControleProdutos{
         })
         .then(resposta => resposta.json())
         .then(resposta => resposta)
-        .catch(err => console.error(err));
+        .catch(err => console.error(err))
     }
 
 
@@ -56,7 +56,7 @@ class ControleProdutos{
         })
         .then(resposta => resposta.json())
         .then(resposta => resposta)
-        .catch(err => console.error(err));
+        .catch(err => console.error(err))
 
         return resposta
     }
