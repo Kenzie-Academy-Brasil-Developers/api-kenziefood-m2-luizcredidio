@@ -4,9 +4,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/src/css/reset.css">
+    <link rel="stylesheet" href="/src/css/dashboard.css">
+    
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <h2>Kenzie</h2><span>Food</span>
+        </div>
+
+        <div class="lateral">
+            <input type="text" placeholder="Pesquisar por produto">
+            <img src="/src/assets/avatar-placeholder.png" id="avatar">
+        </div>
+    </header>
+    <nav class="barra-de-botoes">
+        <ul class="lista-de-filtros">
+            <li class="item-filtro">Todos</li>
+            <li class="item-filtro"> <img src="/src/assets/panificadora.png">Panificadora</li>
+            <li class="item-filtro"> <img src="/src/assets/frutas.png">Frutas</li>
+            <li class="item-filtro"> <img src="/src/assets/bebidas.png">Bebidas</li>
+        </ul>
+
+        <button id="adicionar-produto">Adicionar novo produto</button>
+    </nav>
+
+    <section class="container-tabela">
+        <table>
+            <tr class="titulos">
+                <td>Produtos</td>
+                <td>Categorias</td>
+                <td>Descrição</td>
+                <td>Ações</td>
+            </tr>
+    
+            <!--tr é linha, td é celula-->
+    
+            <tr class="linha-de-item">
+                <td class="produtos"><img src="/src/assets/icon-panqueca.png"> <p>Panqueca de banana com aveia </p></td>
+                
+                <td class="categorias"><span>Bebidas</span> <span>Frutas</span></td>
+    
+                <td class="descricao"><span>Esta receita serve muito bem 2 pessoas...</span></td>
+    
+                <td><img src="/src/assets/editar-icon.png"><img src="/src/assets/apagar-icon.png"></td>
+            </tr>
+        </table>
+        
+    </section>
     
 </body>
 </html>
