@@ -1,4 +1,4 @@
-class controleCarrinho{
+class ControleCarrinho{
     static URL = 'https://api-kenzie-food.herokuapp.com/cart'
 
     static mostrarCarrinho() {
@@ -68,4 +68,4 @@ class controleCarrinho{
 
 }
 
-export {controleCarrinho}
+export {ControleCarrinho}

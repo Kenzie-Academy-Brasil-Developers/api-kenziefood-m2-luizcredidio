@@ -1,4 +1,4 @@
-class controleUsuario{
+class ControleUsuario{
     static token =''
 
     static URL = 'https://api-kenzie-food.herokuapp.com/auth/'
@@ -55,4 +55,4 @@ class controleUsuario{
     }
 }
 
-export {controleUsuario}
+export {ControleUsuario}

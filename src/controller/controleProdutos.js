@@ -1,4 +1,4 @@
-class controleProdutos{
+class ControleProdutos{
     static URL = 'https://api-kenzie-food.herokuapp.com/'
 
     static mostrarProdutos() {
@@ -78,4 +78,4 @@ class controleProdutos{
 
 }
 
-export {controleProdutos}
+export {ControleProdutos}
