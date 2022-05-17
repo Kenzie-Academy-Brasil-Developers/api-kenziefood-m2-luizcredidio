@@ -6,9 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./../css/reset.css">
     <link rel="stylesheet" href="./../css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;500&family=Noto+Sans&display=swap" rel="stylesheet">
     <title>Login Kenzie Food</title>
 </head>
 <body>
+    <header>
+        <h1>Kenzie <span>Food</span></h1>
+    </header>
+    <main>
+        <section>
+            <h1>Log<span>in</span></h1>
+            <form action="" id="form_login">
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="Email" class="field" />
+
+                <label for="senha">Senha</label>
+                <input type="password" name="password" placeholder="Senha" class="field" />
+
+                <input type="submit" value="Enviar" id="btn_login">
+            </form>
+        </section>
+        
+        <section>
+            <p>Não tem cadastro ainda?</p>
+            <p>Clique aqui e se cadastre!</p>
+            <a href="./cadastro.html">Cadastre-se</a>
+        </section>
+
+    </main>
+    <footer>
+        <div class="caixa_erro hide">
+            <p class="texto_erro"></p>
+        </div>
+    </footer>
 
     <script type="module" src="./../controller/controleUsuario.js"></script>
     <script type="module" src="./../js/login.js"></script>

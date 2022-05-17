@@ -40,7 +40,7 @@ class controleProdutos{
         })
         .then(resposta => resposta.json())
         .then(resposta => resposta)
-        .catch(err => console.log(err))
+        .catch(err => console.error(err))
         return resposta
     }
 
@@ -71,7 +71,7 @@ class controleProdutos{
         })
         .then(resposta => resposta.json())
         .then(resposta => resposta)
-        .catch(err => console.log(err))
+        .catch(err => console.error(err))
 
         return resposta
     }

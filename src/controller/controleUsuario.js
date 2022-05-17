@@ -31,12 +31,17 @@ class controleUsuario{
           })
           .then((res) => res.json())
           .then((res) => {
-              if(res.token.length > 0){
-                localStorage.setItem("Token", res.token)
-                window.location = `./../../src/pages/blog.html`
-              }
+              if(res.length > 0){
+                localStorage.setItem("Token", res)
+                window.location = `./../../index.html`
+              }else{const caixaErro = document.querySelector('.caixa_erro')
+              caixaErro.classList.remove('hide')
+
+              const textoErro = document.querySelector('.texto_erro')
+              textoErro.innerText = res.error
+            } 
           })
-          .catch((error) => console.log(error));
+          .catch((error) => console.error(error));
     }
 }
 
