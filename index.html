@@ -20,6 +20,7 @@
     <!--Cabeçalho e navegacao-->
 
     <header class="header">
+
         <h1 class="logo">Kenzie <span>Food</span></h1>
         <div class="pesquizar-por-nome">
             <!-- barra pesquizar -->
@@ -55,6 +56,7 @@
     </section>
 
     <main>
+
         <section class="caixa-lista-produtos" id="lista-produtos">
             <ul class="lista_produtos">
                 <li class="caixa_produto">
@@ -83,7 +85,55 @@
                 </li>
                 <!-- lista de produtos -->
             </ul>
+
+            <div class="caixa_lista_carrinho">
+
+                <div id="carrinho" class="caixa-carrinho">
+                    <div class="carrinho_titlulo">
+
+                        <h1><img src="./src/assets/.png" alt="">Carrinho</h1>
+                        <img src="./src/assets/X.png" alt="">
+
+                    </div>
+
+
+                    <div class="lista_carrinho">
+
+                        <!-- produtos no carrinho -->
+                        <ul class="caixa-produtos">
+
+                            <li class="item_carrinho">
+                                <img class="imagem_carrinho" src="./src/assets/unsplash_eeqbbemH9-c.png" alt="">
+                                <div class="detalhes_carrinho">
+                                    <h3>Panqueca de banana... </h3>
+                                    <p>Panificadora</p>
+                                    <span>R$ 20,00</span>
+                                </div>
+                                <img class="botao_remove" src="./src/assets/apagar-icon.png" alt="">
+                            </li>
+
+                            <li class="item_carrinho">
+                                <img class="imagem_carrinho" src="./src/assets/unsplash_eeqbbemH9-c.png" alt="">
+                                <div class="detalhes_carrinho">
+                                    <h3>Panqueca de banana... </h3>
+                                    <p>Panificadora</p>
+                                    <span>R$ 20,00</span>
+                                </div>
+                                <img class="botao_remove" src="./src/assets/apagar-icon.png" alt="">
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="caixa_total">
+                        <p>Total: R$<span id="total">00.00</span></p>
+                    </div>
+
+
+
+                </div>
         </section>
+
+
         <!-- popup carrinho de compras mobile -->
         <section class="popup_carrinho esconder">
             <div id="carrinho" class="caixa-carrinho">
