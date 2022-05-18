@@ -24,6 +24,9 @@ html{
     font-family: 'Inter';
     
 }
+.body{
+    max-width: 375px;
+}
 
 .header{
     display: flex;
