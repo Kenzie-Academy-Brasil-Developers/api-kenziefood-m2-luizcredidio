@@ -8,7 +8,6 @@ function registrarUsuario(event) {
     event.preventDefault()
 
     const dados = recebeDados(event)
-    console.log(dados)
     ControleUsuario.criarUsuario(dados)
 }
 
