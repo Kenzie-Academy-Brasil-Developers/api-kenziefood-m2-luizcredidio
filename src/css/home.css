@@ -367,6 +367,10 @@ html {
     display: none;
 }
 
+.caixa_lista_carrinho {
+    display: none
+}
+
 
 
 @media (min-width: 800px) {
@@ -399,11 +403,12 @@ html {
     .caixa-lista-produtos {
         padding-top: 20px;
         display: flex;
-        align-items: center;
-        width: 75%;
+        align-items: flex-start;
+        width: auto;
         height: auto;
         margin-left: 5%;
         overflow: hidden;
+        flex-direction: row;
     }
 
     .footer_mobile {
@@ -414,6 +419,18 @@ html {
         display: flex;
         gap: 15px;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: flex-start;
+    }
+
+    .caixa_lista_carrinho {
+        display: flex;
+    }
+
+    .lista_carrinho {
+        display: flex;
+    }
+
+    .caixa_total {
+        display: flex;
     }
 }
