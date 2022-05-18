@@ -1,95 +1,134 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang="pt-br">
-=======
-<html lang="en">
-
->>>>>>> feature/homePage
 <head>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <link rel="stylesheet" href="./src/css/reset.css">
-    <link rel="stylesheet" href="./src/js/home.js">
-    <title>Home Kenzie Food</title>
-=======
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/home.css">
 
     <title>Página inicial</title>
 
->>>>>>> feature/homePage
 </head>
 
 <body>
-<<<<<<< HEAD
-    
-    <script type="module" src="./src/controller/controleProdutos.js"></script>
-    <script type="module" src="./src/controller/controleCarrinho.js"></script>
-    <script type="module" src="./src/js/home.js"></script>
-=======
     <!--Cabeçalho e navegacao-->
 
     <header class="header">
-        <section class="logo">
-            <h1 id="logo-kenzie">Kenzie</h1>
-            <h2 id="logo-food">Food</h2>
-        </section>
-
+        <h1 class="logo">Kenzie <span>Food</span></h1>
         <div class="pesquizar-por-nome">
             <!-- barra pesquizar -->
-            <input type="text" placeholder="Nome do produto" class="campo-pesquisar-por-nome" id="texto-busca">
-            <button class="botao-padrao botao-padrao--pesquisar-por-nome" id="botao-pesquisar">Pesquizar</button>
-
+            <input type="text" placeholder="Pesquisar por produto" class="campo_pesquisa" id="texto-busca">
         </div>
+        <img src="/src/assets/avatar-placeholder.png" id="avatar">
     </header>
 
     <section class="menu-navegacao">
         <!-- menu de navegacao -->
         <nav class="barra-navegacao">
             <ul id="lista-navegacao">
-                <li data-tag="todos" class="lista-navegacao ativa">Todos</li>
-                <li data-tag="panificadora" class="lista-navegacao">Panificadora</li>
-                <li data-tag="frutas" class="lista-navegacao">Frutas</li>
-                <li data-tag="bebidas" class="lista-navegacao">Bebidas</li>
+                <li class="icone todos" data-tag="todos" class="lista-navegacao ativa">Todos</li>
+                <li class="icone panificadora" data-tag="panificadora" class="lista-navegacao"><img src="/src/assets/panificadora.png"><span>Panificadora</span></li>
+                <li class="icone frutas" data-tag="frutas" class="lista-navegacao"><img src="/src/assets/frutas.png"><span>Frutas</span></li>
+                <li class="icone bebidas" data-tag="bebidas" class="lista-navegacao"><img src="/src/assets/bebidas.png"><span>Bebidas</span></li>
             </ul>
         </nav>
     </section>
+    <!-- popup do usuario(quando clicar na imagem remover o esconder) -->
+    <section class="popup_usuario esconder">
+        <div class="caixa_usuario">
+            <div class="menu_usuario">
+                <h1>Menu Usuario</h1>
+                <img class="botao_fechar" src="./src/assets/X.png" alt="">
+            </div>
+            <a href="./src/pages/login.html">Login</a>
+            <a href="./src/pages/cadastro.html">Cadastro</a>
+            <a href="./src/pages/dashboard.html">Dashboard</a>
+
+        </div>
+        
+    </section>
 
     <main>
-        <div class="caixa-lista-produtos" id="lista-produtos">
-            <ul>
+        <section class="caixa-lista-produtos" id="lista-produtos">
+            <ul class="lista_produtos">
+                <li class="caixa_produto">
+                    <img class="img_produto" src="./src/assets/Frame 5.png" alt="">
+                    <div class="detalhes_produto">
+                        <h3>Panqueca de banana com aveia</h3>
+                        <p>Esta receita serve muito bem 2 pessoas, deixa a gente bem satisfeito, se não tiver outra opção de café. Se tiver mais comida, como pães e frutas.</p>
+                        <span>R$ 20,00</span>
+                    </div>
+                </li>
+                <li class="caixa_produto">
+                    <img class="img_produto" src="./src/assets/Frame 5.png" alt="">
+                    <div class="detalhes_produto">
+                        <h3>Panqueca de banana com aveia</h3>
+                        <p>Esta receita serve muito bem 2 pessoas, deixa a gente bem satisfeito, se não tiver outra opção de café. Se tiver mais comida, como pães e frutas.</p>
+                        <span>R$ 20,00</span>
+                    </div>
+                </li>
                 <!-- lista de produtos -->
             </ul>
-        </div>
+        </section>
+        <!-- popup carrinho de compras mobile -->
+        <section class="popup_carrinho esconder">
+            <div id="carrinho" class="caixa-carrinho">
+                <div class="carrinho_titlulo">
+                    
+                    <h1><img src="./src/assets/.png" alt="">Carrinho</h1>
+                    <img src="./src/assets/X.png" alt="">
 
-        <div id="carrinho" class="caixa-carrinho">
-            <h1>Carrinho</h1>
-            <ul class="caixa-produtos">
-                <!-- produtos no carrinho -->
-
-            </ul>
-
-            <div class="caixa-quantidade-total">
-                <!-- quantidade de itens no carrinho -->
-                <p>Quantidade: <span id="quantidade-total">0</span></p>
+                </div>
+                <ul class="caixa-produtos">
+                    <!-- produtos no carrinho -->
+                    <li class="item_carrinho">
+                        <img class="imagem_carrinho" src="./src/assets/unsplash_eeqbbemH9-c.png" alt="">
+                        <div class="detalhes_carrinho">
+                            <h3>Panqueca de banana... </h3>
+                            <p>Panificadora</p>
+                            <span>R$ 20,00</span>
+                        </div>
+                        <img class="botao_remove" src="./src/assets/apagar-icon.png" alt="">
+                    </li>
+                    <li class="item_carrinho">
+                        <img class="imagem_carrinho" src="./src/assets/unsplash_eeqbbemH9-c.png" alt="">
+                        <div class="detalhes_carrinho">
+                            <h3>Panqueca de banana... </h3>
+                            <p>Panificadora</p>
+                            <span>R$ 20,00</span>
+                        </div>
+                        <img class="botao_remove" src="./src/assets/apagar-icon.png" alt="">
+                    </li>
+                    
+    
+                </ul>
+    
+                <div class="caixa-quantidade-total">
+                    <!-- quantidade de itens no carrinho -->
+                    <p class="quantidade">Quantidade: </p>
+                    <span id="quantidade-total">0</span>
+                </div>
+    
+                <div class="caixa-valor-total">
+                    <!-- valor total a ser pago -->
+                    <p class="total">Total: </p>
+                    <span id="valor-total">R$00.00</span>
+                </div>
             </div>
-
-            <div class="caixa-valor-total">
-                <!-- valor total a ser pago -->
-                <p>Preço total: R$<span id="valor-total">00.00</span></p>
-            </div>
-        </div>
+        </section>
     </main>
+    <footer class="footer_mobile">
+        <h1><img src="./src/assets/.png" alt=""> Carrinho</h1>
+    </footer>
 
 
 
->>>>>>> feature/homePage
 </body>
 
 </html>
