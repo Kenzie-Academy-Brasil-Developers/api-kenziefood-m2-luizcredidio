@@ -19,11 +19,13 @@
 
   }
 
+
 header{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    margin-left: 120px;
-    margin-right: 120px;
+    padding-left: 6%;
+    padding-right: 6%;
 
 }
 
@@ -31,7 +33,7 @@ header{
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     margin-top: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 5%;
 }
 
 .logo h2{
@@ -49,18 +51,16 @@ header{
 .lateral{
     display: flex;
     align-self: center;
-    margin-left: auto;
 }
 
 .lateral input{
+    font-family: 'Inter', sans-serif;
     box-sizing: border-box;
-    height: 50px;
-    width: 312px;
     border: 0px;
     background-color: var(--grey-2);
     color: var(--grey-3);
     border-radius: 12px;
-    padding: 20px;
+    padding: 5%;
 
 }
 
@@ -73,13 +73,22 @@ header{
 
 .barra-de-botoes{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     font-family: 'Inter', sans-serif;
 }
 
+.lista-de-filtros{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3%;
+    justify-content: center;
+}
+
 .lista-de-filtros li{
     box-sizing: border-box;
-    display: inline;
+    flex-grow: 1;
+    display: inline-block;
     font-weight: 500;
     color: var(--grey-4);
     font-size: 16px;
@@ -103,10 +112,12 @@ header{
     font-weight: 600;
     color: var(--grey-1);
 
+    height: fit-content;
     padding: 20px;
     border: 0px;
     border-radius: 32px;
     cursor: pointer;
+    align-self: center;
 }
 
 .container-tabela{
@@ -133,7 +144,7 @@ table{
 
 .linha-de-item span{
     color: var(--grey-3);
-    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .produtos{
