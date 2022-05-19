@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-color: #FAFAFA;
+    --color-primary: #FF2253;
+    --color-primary-50: #FFE9EE;
+    --color-secondary: #0CA678;
+    --color-secondary-50: #E4F7EF;
+    --product-1:#EEF6FF;
+    --product-2:#FFF7F4;
+    --product-3: #FFF1F4;
+    --product-4: #F3EEF5;
+    --grey-1: #F8F9FA;
+    --grey-2: #E9ECEF;
+    --grey-3: #868E96;
+    --grey-4: #212529;
+    --btn-border-color: #DEE2E6;
+}
+
+:root{
+    background-color: var(--bg-color);
+}
+
+.container-modal{
+    display: none;
+    position: fixed;
+    background-color: #868e9691;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+}
+
+.container-editar{
+    display: none;
+    position: fixed;
+    background-color: #868e9691;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+}
+
+.container-deletar{
+    display: none;
+    position: fixed;
+    background-color: #868e9691;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+}
+
+.topo{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5%;
+}
+
+.topo h3{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--grey-4);
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.botao-fechar{
+    display: inline-block;
+    font-weight: bolder;
+    cursor: pointer;
+    color: var(--grey-3);
+}
+
+.modal{
+    background-color: var(--bg-color);
+    font-family: 'Poppins';
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+    width: 345px;
+    border-radius: 12px;
+}
+
+.modal form{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}
+
+.modal label{
+    padding: 2%;
+}
+
+.modal input{
+    margin: 1%;
+    border: 1px solid var(--btn-border-color);
+    border-radius: 12px;
+    padding: 4%;
+}
+
+.categoriasInput{
+    padding: 2%;
+    display: flex;
+    font-size: 12px;
+}
+
+#btn-cadastrar-produto{
+    background-color: var(--color-primary);
+    color: var(--grey-1);
+    border: 0px;
+    border-radius: 12px;
+    height: 30px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.btn-editar-produto{
+    background-color: var(--color-primary);
+    color: var(--grey-1);
+    border: 0px;
+    border-radius: 12px;
+    height: 30px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.container-deletar p{
+    margin-bottom: 3%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+}
+
+.botoes{
+    display: flex;
+    gap: 10px;
+}
+.sim-ou-nao{
+    border: none;
+    border-radius: 12px;
+    background-color: var(--grey-1);
+    color: var(--grey-3);
+    flex-grow: 2;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 3%;
+}

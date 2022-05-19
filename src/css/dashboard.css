@@ -36,6 +36,14 @@ header{
     margin-bottom: 5%;
 }
 
+.logo a{
+    text-decoration: none;
+}
+
+.logo a:visited{
+    text-decoration: none;
+}
+
 .logo h2{
     color: var(--grey-4);
     font-size: 22px;
@@ -80,15 +88,18 @@ header{
 
 .lista-de-filtros{
     display: flex;
-    flex-wrap: wrap;
+    overflow: auto;
     padding: 3%;
-    justify-content: center;
+
 }
 
 .lista-de-filtros li{
+    display: flex;
+    align-content: center;
+    align-items: center;
+
     box-sizing: border-box;
     flex-grow: 1;
-    display: inline-block;
     font-weight: 500;
     color: var(--grey-4);
     font-size: 16px;
@@ -123,12 +134,13 @@ header{
 .container-tabela{
     display: flex;
     justify-content: center;
+    padding: 5%;
 }
 
 table{
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 .titulos{
@@ -150,6 +162,11 @@ table{
 .produtos{
     width: 350px;
 }
+
+.produtos img{
+    width: 50px;
+}
+
 .produtos p{
     display: inline;
     font-weight: 500;
@@ -161,4 +178,9 @@ table{
 
 .descricao{
     width: 450px;
+}
+
+.icones-td img{
+    margin-right: 10%;
+    cursor: pointer;
 }
