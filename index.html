@@ -8,7 +8,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;500&family=Noto+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/reset.css">
     <link rel="stylesheet" href="./src/css/home.css">
 
@@ -20,6 +20,7 @@
     <!--Cabeçalho e navegacao-->
 
     <header class="header">
+
         <h1 class="logo">Kenzie <span>Food</span></h1>
         <div class="pesquizar-por-nome">
             <!-- barra pesquizar -->
@@ -40,7 +41,7 @@
         </nav>
     </section>
     <!-- popup do usuario(quando clicar na imagem remover o esconder) -->
-    <section class="popup_usuario esconder">
+    <section class="popup_usuario menu_esconder">
         <div class="caixa_usuario">
             <div class="menu_usuario">
                 <h1>Menu Usuario</h1>
@@ -48,25 +49,28 @@
             </div>
             <a href="./src/pages/login.html">Login</a>
             <a href="./src/pages/cadastro.html">Cadastro</a>
-            <a href="./src/pages/dashboard.html">Dashboard</a>
+            <a class="usuario_nao_logado" href="./src/pages/dashboard.html">Dashboard</a>
 
         </div>
         
     </section>
 
     <main>
+
         <section class="caixa-lista-produtos" id="lista-produtos">
             <ul class="lista_produtos">
-                
+              
             </ul>
         </section>
+
+
         <!-- popup carrinho de compras mobile -->
         <section class="popup_carrinho esconder">
             <div id="carrinho" class="caixa-carrinho">
                 <div class="carrinho_titlulo">
                     
                     <h1><img src="./src/assets/.png" alt="">Carrinho</h1>
-                    <img src="./src/assets/X.png" alt="">
+                    <img class="botao_fechar_carrinho" src="./src/assets/X.png" alt="">
 
                 </div>
                 <ul class="caixa-produtos">
@@ -85,7 +89,43 @@
                         <div class="detalhes_carrinho">
                             <h3>Panqueca de banana... </h3>
                             <p>Panificadora</p>
-                            <span>R$ 20,00</span>
+                            <span>R$ 20,00</span>                            
+                        </div>
+                        <img class="botao_remove" src="./src/assets/apagar-icon.png" alt="">
+                    </li>
+                    <li class="item_carrinho">
+                        <img class="imagem_carrinho" src="./src/assets/unsplash_eeqbbemH9-c.png" alt="">
+                        <div class="detalhes_carrinho">
+                            <h3>Panqueca de banana... </h3>
+                            <p>Panificadora</p>
+                            <span>R$ 20,00</span>                            
+                        </div>
+                        <img class="botao_remove" src="./src/assets/apagar-icon.png" alt="">
+                    </li>
+                    <li class="item_carrinho">
+                        <img class="imagem_carrinho" src="./src/assets/unsplash_eeqbbemH9-c.png" alt="">
+                        <div class="detalhes_carrinho">
+                            <h3>Panqueca de banana... </h3>
+                            <p>Panificadora</p>
+                            <span>R$ 20,00</span>                            
+                        </div>
+                        <img class="botao_remove" src="./src/assets/apagar-icon.png" alt="">
+                    </li>
+                    <li class="item_carrinho">
+                        <img class="imagem_carrinho" src="./src/assets/unsplash_eeqbbemH9-c.png" alt="">
+                        <div class="detalhes_carrinho">
+                            <h3>Panqueca de banana... </h3>
+                            <p>Panificadora</p>
+                            <span>R$ 20,00</span>                            
+                        </div>
+                        <img class="botao_remove" src="./src/assets/apagar-icon.png" alt="">
+                    </li>
+                    <li class="item_carrinho">
+                        <img class="imagem_carrinho" src="./src/assets/unsplash_eeqbbemH9-c.png" alt="">
+                        <div class="detalhes_carrinho">
+                            <h3>Panqueca de banana... </h3>
+                            <p>Panificadora</p>
+                            <span>R$ 20,00</span>                            
                         </div>
                         <img class="botao_remove" src="./src/assets/apagar-icon.png" alt="">
                     </li>
@@ -111,8 +151,8 @@
         <h1><img src="./src/assets/.png" alt=""> Carrinho</h1>
     </footer>
 
+<script type="module" src="./src/js/home.js"></script>
 
-<script type="module" src="src/js/home.js"></script>
 </body>
 
 </html>
