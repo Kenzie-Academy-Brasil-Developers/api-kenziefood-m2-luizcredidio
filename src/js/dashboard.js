@@ -41,7 +41,7 @@ adcFuncaoFecharModal()
 function cadastrarProduto(event){
     event.preventDefault()
     const dados = recebeDadosDoForm(event)
-    console.log(dados)
+
     ControleProdutos.criarProduto(dados)
 }
 
@@ -78,6 +78,7 @@ function fecharModalBtnNao(){
 }
 fecharModalBtnNao()
 
+let valorDoId = 0
 function renderizarProdutosPrivados(listaDeProdutos){
     let tabelaDeProdutos = document.getElementById('tabela-de-produtos')
 
@@ -112,20 +113,25 @@ function renderizarProdutosPrivados(listaDeProdutos){
             let divIcones = document.createElement('div')
                 divIcones.classList.add('icones-td')
                 let iconEditar = document.createElement('img')
+                    iconEditar.setAttribute('referencia', `${produto.id}`)
                     iconEditar.setAttribute('class','editar-icon')
                     iconEditar.src = "/src/assets/editar-icon.png"
                     iconEditar.addEventListener('click', event=>{
                         event.preventDefault()
                         const containerModalEditar = document.querySelector('.container-editar')
                         containerModalEditar.style.display = 'flex'
+                        valorDoId = produto.id
+                        console.log(valorDoId)
                     })
 
                 let iconApagar = document.createElement('img')
                     iconApagar.setAttribute('class', 'apagar-icon')
                     iconApagar.src = "/src/assets/apagar-icon.png"
+                    iconApagar.setAttribute('referencia', `${produto.id}`)
                     iconApagar.addEventListener('click', event =>{
-
+                    
                         event.preventDefault()
+                        valorDoId = produto.id
                         const containerModalDeletar = document.querySelector('.container-deletar')
                         containerModalDeletar.style.display = 'flex'
                     })
@@ -142,13 +148,39 @@ function renderizarProdutosPrivados(listaDeProdutos){
 renderizarProdutosPrivados(await ControleProdutos.mostrarProdutosPrivados())
 
 console.log(await ControleProdutos.mostrarProdutosPrivados())
+const produtos = await ControleProdutos.mostrarProdutosPrivados()
 
-//class="btn-editar-produto"
 const btnEditarProduto = document.querySelector("#form-editar")
 btnEditarProduto.addEventListener('submit', editarProduto)
 
+let arrayDeProds = document.getElementById('tabela-de-produtos')
+
 function editarProduto(event){
     event.preventDefault()
-    const dados = recebeDadosDoForm(event)
-    console.log(dados)
+    const dados = (event)=> {
+
+        const formItens = [...event.target]
+        const values = {}
+        
+        formItens.forEach((item) => {
+            if (item.name != "") {
+                values[item.name] = item.value
+            }
+        })
+
+        return values
+    }
+    ControleProdutos.editarProduto(dados(event), valorDoId)   
+
+}
+
+const btnDeletar = document.getElementById('excluir')
+
+btnDeletar.addEventListener('click', deletarProduto)
+
+function deletarProduto(event){
+    event.preventDefault()
+
+    ControleProdutos.apagarProduto(valorDoId)
+
 }
