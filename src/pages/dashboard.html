@@ -7,15 +7,11 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="/src/css/reset.css">
     <link rel="stylesheet" href="/src/css/dashboard.css">
-    <link rel="stylesheet" href="/src/css/modal-dashboard.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="/index.html">
-               <h2>Kenzie</h2><span>Food</span> 
-            </a>
-            
+            <h2>Kenzie</h2><span>Food</span>
         </div>
 
         <div class="lateral">
@@ -35,7 +31,7 @@
     </nav>
 
     <section class="container-tabela">
-        <table id="tabela-de-produtos">
+        <table>
             <tr class="titulos">
                 <td>Produtos</td>
                 <td>Categorias</td>
@@ -45,123 +41,20 @@
     
             <!--tr é linha, td é celula-->
     
-            <!--<tr class="linha-de-item">
+            <tr class="linha-de-item">
                 <td class="produtos"><img src="/src/assets/icon-panqueca.png"> <p>Panqueca de banana com aveia </p></td>
                 
                 <td class="categorias"><span>Bebidas</span> <span>Frutas</span></td>
     
                 <td class="descricao"><span>Esta receita serve muito bem 2 pessoas...</span></td>
     
-                <td><div class="icones-td">
-                    <img class="editar-icon" src="/src/assets/editar-icon.png">
-                    <img class="apagar-icon" src="/src/assets/apagar-icon.png">
-                </div></td>
-            </tr>-->
+                <td><img src="/src/assets/editar-icon.png"><img src="/src/assets/apagar-icon.png"></td>
+            </tr>
         </table>
         
     </section>
-
-    <div class="container-modal">
-        <div class="modal">
-
-            <div class="topo">
-                <h3>Cadastro de produto</h3>
-                <p class="botao-fechar">X</p>
-            </div>
-                       
-            <form action="" class="form-add-product">
-                <label for="">Nome do Produto</label>
-                <input type="text" placeholder="Digitar o nome" name="nome" >
-
-                <label for="">Descrição</label>
-                <input type="text" placeholder="Digitar a descrição" name="descricao" >
-
-                <label for="">Categorias</label>
-                <div class="categoriasInput">
-                    
-                    <input type="checkbox" id="Panificadora" name="categoria" value="Panificadora" >
-                    <label for="Panificadora">Panificadora</label><br>
-                    <input type="checkbox" id="Frutas" name="categoria" value="Frutas">
-                    <label for="Frutas">Frutas</label><br>
-                    <input type="checkbox" id="Bebidas" name="categoria" value="Bebidas">
-                    <label for="Bebidas">Bebidas</label><br>
-                </div>
-
-                
-
-                <label for="">Valor do produto</label>
-                <input type="number" placeholder="Digitar o valor aqui" name="preco" >
-
-                <label for="">Link da imagem</label>
-                <input type="text" placeholder="Inserir link" name="imagem" >
-
-                <button id="btn-cadastrar-produto" type="submit">Cadastrar produto</button>
-            </form>
-        </div>
-    </div>
-
-    <div class="container-editar">
-        <div class="modal">
-            <div class="topo">
-                <h3>Editar produto</h3>
-                <p id="fechar-editar" class="botao-fechar">X</p>
-            </div>
-                       
-            <form id="form-editar" action="">
-                <label for="">Nome do Produto</label>
-                <input type="text" placeholder="Digitar o nome" name="nome" id="nome do produto">
-
-                <label for="">Descrição</label>
-                <input type="text" placeholder="Digitar a descrição" name="descricao" id="descricao">
-
-                <label for="">Categorias</label>
-                <div class="categoriasInput">
-                    
-                    <input type="checkbox" id="Panificadora" name="categoria" value="Panificadora" id="categoria">
-                    <label for="Panificadora">Panificadora</label><br>
-                    <input type="checkbox" id="Frutas" name="categoria" value="Frutas">
-                    <label for="Frutas">Frutas</label><br>
-                    <input type="checkbox" id="Bebidas" name="categoria" value="Bebidas">
-                    <label for="Bebidas">Bebidas</label><br>
-                </div>
-
-                
-
-                <label for="">Valor do produto</label>
-                <input type="number" placeholder="Digitar o valor aqui" name="preco" id="valor">
-
-                <label for="">Link da imagem</label>
-                <input type="text" placeholder="Inserir link" name="imagem" id="imagem">
-
-                <button class="btn-editar-produto" type="submit">Editar produto</button>
-            </form>
-        </div>
-    </div>
-
-    <div class="container-deletar">
-        <div class="modal">
-
-            <div class="topo">
-                <h3>Exclusão de produto</h3>
-                <p class="botao-fechar" id="fechar-modal-excluir">X</p>
-            </div>
-
-            
-            <p>Tem certeza que deseja excluir este produto?</p>
-            <div class="botoes">
-                <button id="excluir" class="sim-ou-nao">Sim</button>
-                <!--ADICIONAR UM VALUE NO DOM ONDE O VALUE = ID DO PRODUTO-->
-
-                <button id="fechar" class="sim-ou-nao">Não</button>
-            </div>
-
-
-        </div>    
-    </div>
-    
     
     <script type="module" src="./../controller/controleProdutos.js"></script>
     <script type="module" src="./../js/dashboard.js"></script>
-    
 </body>
 </html>

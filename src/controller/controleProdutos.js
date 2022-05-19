@@ -14,9 +14,9 @@ class ControleProdutos{
         .catch(err => console.error(err))
     }
 
-    static async mostrarProdutosPrivados() {
+    static mostrarProdutosPrivados() {
 
-        return await fetch(`${this.URL}my/products`, {
+        return fetch(`${this.URL}my/products`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
