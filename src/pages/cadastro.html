@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../css/reset.css">
+    <link rel="stylesheet" href="./../css/cadastro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;500&family=Noto+Sans&display=swap" rel="stylesheet">
+    <title>Cadastro Kenzie Food</title>
+</head>
+<body>
+    <header>
+        <h1>Kenzie <span>Food</span></h1>
+    </header>
+    <main>
+        <section>
+            <h1>Cadas<span>tro</span></h1>
+            <form action="" id="form_registrar">
+                <label for="name">Nome</label>
+                <input type="text" name="name" placeholder="Nome de Usuario" class="field" />
+                
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="Email" class="field" />
+                
+                <label for="senha">Senha</label>
+                <input type="password" name="password" placeholder="Senha" class="field" />
+        
+                <input type="submit" value="Enviar" id="btn_registro">
+        
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="caixa_erro hide">
+            <p class="texto_erro"></p>
+        </div>
+    </footer>
+    
+    <script type="module" src="./../controller/controleUsuario.js"></script>
+    <script type="module" src="./../js/cadastro.js"></script>
+</body>
+</html>

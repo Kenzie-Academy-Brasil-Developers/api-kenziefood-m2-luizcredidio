@@ -1,0 +1,118 @@
+:root {
+    --bg-color: #FAFAFA;
+    --color-primary: #FF2253;
+    --color-primary-50: #FFE9EE;
+    --color-secondary: #0CA678;
+    --color-secondary-50: #E4F7EF;
+    --product-1:#EEF6FF;
+    --product-2:#FFF7F4;
+    --product-3: #FFF1F4;
+    --product-4: #F3EEF5;
+    --grey-1: #F8F9FA;
+    --grey-2: #E9ECEF;
+    --grey-3: #868E96;
+    --grey-4: #212529;
+    --btn-border-color: #DEE2E6;
+}
+
+:root{
+    background-color: var(--bg-color);
+    font-family: 'Inter';
+}
+
+header{
+    width: 100%;
+    display: flex;
+    background-color: var(--bg-color);
+    height: 72px;
+    align-items: center;
+    padding-left: 6%;
+    font-weight: 700;
+    font-size: 21.6949px;
+    
+}
+
+header span{
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 16.2712px;
+}
+
+
+main{
+    padding-top: 40px;
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+section{
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 395px;
+    gap: 10px;
+}
+
+section input{
+    width: 100%;
+    margin-top: 16px;
+    margin-bottom: 28px;
+    padding: 26px 2px 26px 20px;
+    border: 1.5px solid var(--btn-border-color);
+    border-radius: 12px;
+    background-color: var(--grey-1);
+}
+
+textarea:focus, input:focus{
+    outline: none;
+    background-color: var(white);
+    border: 1.5px solid black;
+}
+
+section input:hover{
+    background-color: var(--grey-2);
+    border: 1.5px solid black;
+}
+
+section h1{
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+h1 span{
+    color: var(--color-primary);
+}
+
+#btn_login{
+    background-color: var(--color-primary);
+    color: white;
+    padding-left: 2px;
+}
+
+p, a{
+    font-size: 15px;
+}
+
+a{
+    font-weight: bold;
+}
+
+.caixa_erro{
+    display: flex;
+    background: red;
+    color: white;
+    height: 72px;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.hide{
+    display: none;
+}
