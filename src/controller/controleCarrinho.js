@@ -33,28 +33,10 @@ class ControleCarrinho{
             return data
         })
         .catch(err => console.error(err))
-        console.log(resposta)
         return resposta
     }
 
-    static async editarProduto(dadosProduto, id) {
-
-         const resposta = await fetch(`${this.URL}/remove/:${id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${localStorage.getItem("Token")}`
-            },
-            body: JSON.stringify(dadosProduto)
-        })
-        .then(resposta => resposta.json())
-        .then(resposta => resposta)
-        .catch(err => console.error(err))
-
-        return resposta
-    }
-
-    static async apagarProduto(id){
+    static async apagarCarrinho(id){
         const resposta = await fetch(`${this.URL}/remove/${id}`,{
             method: "DELETE",
             headers:{
@@ -62,12 +44,12 @@ class ControleCarrinho{
                 "Authorization": `Bearer ${localStorage.getItem("Token")}`
             }
         })
-        .then(resposta => resposta.json())
+        .then(resposta => resposta)
         .then(resposta => {
             Homepage.renderizarNoCarrinho()
             return resposta
         })
-        .catch(err => console.log(err))
+        .catch(err => console.error(err))
 
         return resposta
     }

@@ -103,6 +103,7 @@ btnComprar.forEach((botao) => {
                     let dados = {
                         product_id: idCompra
                     }
+                    carrinhoLocalStorage.push({product_id: idCompra})
                     ControleCarrinho.addCarrinho(dados)
                 }
     })
@@ -110,9 +111,14 @@ btnComprar.forEach((botao) => {
 
 
 
-function removerCarrinho(e){
+async function removerCarrinho(e){
     const id = e.currentTarget.id
-    ControleCarrinho.apagarProduto(id)
+    await ControleCarrinho.apagarCarrinho(id)
+}
+
+function atualizaQuantidade(){
+    const quantidade = document.querySelector('# quantidade-total')
+    quantidade.innerText = listaCarrinho.length
 }
 
 

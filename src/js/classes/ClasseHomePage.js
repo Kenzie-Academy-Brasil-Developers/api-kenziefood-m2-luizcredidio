@@ -2,6 +2,7 @@ import {removerCarrinho} from "../home.js";
 import {ControleCarrinho} from "../../controller/controleCarrinho.js"
 export default class  Homepage{
     
+
     static async renderizarNaTela(listaDeProdutos){
 
         let vitrineDeProdutos = document.querySelector('.lista_produtos')

@@ -512,6 +512,7 @@ html{
         top: auto;
         bottom: auto;
         width: 20%;
+        height: 30%;
         background-color: white;
         border-radius: 15px;
         border: 1.5px solid var(--grey-2);
