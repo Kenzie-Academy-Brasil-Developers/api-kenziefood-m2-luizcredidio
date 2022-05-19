@@ -2,17 +2,23 @@ export default class  Homepage{
     
     static async renderizarNaTela(listaDeProdutos){
         
-        let vitrineDeProdutos = document.querySelector('#lista-produtos')
+        listaDeProdutos = await listaDeProdutos
 
+        let vitrineDeProdutos = document.querySelector('.lista_produtos')
+        vitrineDeProdutos.innerHTML = ""
         listaDeProdutos.forEach(produto => {
-            let boxDoProduto = document.createElement('div')
-            div.classList.add('box_produto')
+            let caixaDoProduto = document.createElement('li')
+            caixaDoProduto.classList.add('caixa_produto')
 
             let img = document.createElement('img')
-            img.src = produto.imagem
-            img.alt = produto.nome
+            img.classList.add("img_produto")
+            img.src = `${produto.imagem}`
+            img.alt = `${produto.nome}`
 
-            let nomeProduto = document.createElement('h2')
+            let divDetalhesDoProduto = document.createElement('div')
+            divDetalhesDoProduto.classList.add("detalhes_produto")
+
+            let nomeProduto = document.createElement('h3')
             nomeProduto.innerText = produto.nome
 
             let descricaoProduto = document.createElement('p')
@@ -21,22 +27,65 @@ export default class  Homepage{
             let categoria = document.createElement('p')
             categoria.innerText = produto.categoria
 
-            let divDoPreco_BotaoCarrinho = document.createElement('div')
-            let preco = document.createElement('h2')
+            let preco = document.createElement('span')
             preco.innerText =`R$ ${produto.preco}`
+
             let botaoCarrinho = document.createElement('p')
             botaoCarrinho.classList.add('botaoCarrinho')
-            divDoPreco_BotaoCarrinho.appendChild(preco)
-            divDoPreco_BotaoCarrinho.appendChild(botaoCarrinho)
+            botaoCarrinho.dataset.id = produto.id
+            
 
-            boxDoProduto.appendChild(img)
-            boxDoProduto.appendChild(nomeProduto)
-            boxDoProduto.appendChild(descricaoProduto)
-            boxDoProduto.appendChild(categoria)
-            boxDoProduto.appendChild(divDoPreco_BotaoCarrinho)
+            caixaDoProduto.appendChild(img)
+            divDetalhesDoProduto.appendChild(nomeProduto)
+            divDetalhesDoProduto.appendChild(descricaoProduto)
+            divDetalhesDoProduto.appendChild(categoria)
+            divDetalhesDoProduto.appendChild(preco)
+            divDetalhesDoProduto.appendChild(botaoCarrinho)
+            caixaDoProduto.appendChild(divDetalhesDoProduto)
 
-            vitrineDeProdutos.appendChild(boxDoProduto)
+            vitrineDeProdutos.appendChild(caixaDoProduto)
         });
+    }
+
+    static async filtrarPanificadora(listaDeProdutos){
+
+        listaDeProdutos = await listaDeProdutos
+        const listaPanificadora = listaDeProdutos.filter((produto) => {
+            return produto.categoria === "Panificadora";
+        });
+        
+        this.renderizarNaTela(listaPanificadora)
+    }
+
+    static async filtrarFrutas(listaDeProdutos){
+
+        listaDeProdutos = await listaDeProdutos
+        const listaFrutas = listaDeProdutos.filter((produto) => {
+            return produto.categoria === "Frutas";
+        });
+        
+        this.renderizarNaTela(listaFrutas)
+    }
+
+    static async filtrarBebidas(listaDeProdutos){
+
+        listaDeProdutos = await listaDeProdutos
+        const listaBebidas = listaDeProdutos.filter((produto) => {
+            return produto.categoria === "Bebidas";
+        });
+        
+        this.renderizarNaTela(listaBebidas)
+    }
+
+    static async filtrarPesquisa(input, listaDeProdutos){
+        input = input.toLowerCase()
+        listaDeProdutos = await listaDeProdutos
+
+        const listaFiltrada = listaDeProdutos.filter((produto) => {
+            return produto.nome.toLowerCase().includes(input);
+        });
+        console.log(listaFiltrada)
+        this.renderizarNaTela(listaFiltrada)
     }
 
 }
