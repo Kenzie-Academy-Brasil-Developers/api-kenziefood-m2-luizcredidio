@@ -5,7 +5,7 @@ Homepage.renderizarNaTela(ControleProdutos.mostrarProdutos())
 
 const btnTodos = document.querySelector('.todos')
 btnTodos.addEventListener('click', (e) => {
-    let btnClicado = e.target
+    let btnClicado = e.currentTarget
     e.preventDefault()
     removeAtivo()
     btnClicado.classList.add('ativa')
@@ -14,7 +14,7 @@ btnTodos.addEventListener('click', (e) => {
 
 const btnPanificadora = document.querySelector('.panificadora')
 btnPanificadora.addEventListener('click', (e) => {
-    let btnClicado = e.target
+    let btnClicado = e.currentTarget
     e.preventDefault()
     removeAtivo()
     btnClicado.classList.add('ativa')
@@ -23,7 +23,7 @@ btnPanificadora.addEventListener('click', (e) => {
 
 const btnFrutas = document.querySelector('.frutas')
 btnFrutas.addEventListener('click', (e) => {
-    let btnClicado = e.target
+    let btnClicado = e.currentTarget
     e.preventDefault()
     removeAtivo()
     btnClicado.classList.add('ativa')
@@ -32,7 +32,7 @@ btnFrutas.addEventListener('click', (e) => {
 
 const btnBebidas = document.querySelector('.bebidas')
 btnBebidas.addEventListener('click', (e) => {
-    let btnClicado = e.target
+    let btnClicado = e.currentTarget
     e.preventDefault()
     removeAtivo()
     btnClicado.classList.add('ativa')
@@ -52,8 +52,7 @@ function removeAtivo(){
     for(let i = 0; i < arrayFiltros.length; i++){
         arrayFiltros[i].classList.remove('ativa');
     }
-
-
+}
 
 const avatar = document.querySelector('#avatar')
 avatar.addEventListener('click',abrirMenuUsuario)
@@ -86,5 +85,4 @@ fecharCarrinho.addEventListener('click',fecharPopupCarrinho)
 function fecharPopupCarrinho(evt){
     const popupCarrinho = document.querySelector('.popup_carrinho')
     popupCarrinho.classList.add('esconder')
-
 }
