@@ -33,7 +33,6 @@ html{
     display: flex;
     flex-direction: row;
     padding-left: 5%;
-    margin-top: 10px;
     align-content: center;
     width: 100%;
     flex-wrap: wrap;
@@ -105,6 +104,11 @@ html{
     height: 15px;
 }
 
+.botao_fechar_carrinho{
+    width: 11px;
+    height: 15px;
+}
+
 .caixa_usuario a{
     margin-top: 15px;
     padding: 15px 20px;
@@ -153,16 +157,21 @@ html{
     
 }
 
-.icone{
+.icone img{
     margin-right: 15px;
     width: 17px;
     height: 17px;
 }
 
+.icone:hover{
+    background-color: var(--color-primary);
+    color: white; 
+}
+
 
 .todos{
-    background-color: var(--color-primary);
-    color: white;
+    background-color: var(--color-primary-50);
+    color: var(--grey-4);
     min-width: 88px;
     height: 48px;
 }
@@ -189,13 +198,18 @@ html{
 
 }
 
+.ativa{
+    background-color: var(--color-primary);
+    color: white;
+}
+
 /*listagem de produtos*/
 .caixa-lista-produtos{
     padding-top: 20px;
     display: flex;
     align-items: center;
     width: 100%;
-    height: 452px;
+    height: 463px;
     margin-left: 5%;
     overflow: scroll;
 }
@@ -231,12 +245,41 @@ html{
     color: var(--grey-3);
     font-size: 14px;
     line-height: 24px;
+    max-height: 50px;
+    overflow: hidden;
+}
+
+.categoria{
+    font-size: 12px;
+    color: var(--grey-3)
 }
 
 .detalhes_produto span{
     color: var(--grey-4);
     font-size: 14px;
     font-weight: bold;
+}
+
+.valores_produto{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn_add{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background-color: var(--color-secondary-50);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.icone_add{
+    width: 15px;
+    height: 15px;
 }
 
 .footer_mobile{
@@ -340,10 +383,12 @@ html{
 .botao_remove{
     width: 10px;
     height: 12px;
+    cursor: pointer;
 }
 
 .caixa-quantidade-total{
     color: black;
+    background-color: var(--grey-1);
     font-weight: bold;
     padding-right: 20px;
     padding-left: 20px;
@@ -369,12 +414,14 @@ html{
     display: none;
 }
 
-.caixa_lista_carrinho {
-    display: none
+.menu_esconder{
+    display: none;
 }
 
 
-@media (min-width: 800px) {
+
+
+@media (min-width: 400px) {
 
 
     html {
@@ -393,6 +440,10 @@ html{
         justify-content: space-between;
     }
 
+    .pesquizar-por-nome{
+        margin-right: 10%;
+    }
+
     #lista-navegacao {
         display: flex;
         font-family: 'Inter', sans-serif;
@@ -400,11 +451,12 @@ html{
         margin-top: 30px;
         overflow: hidden;
     }
-
+    
     .caixa-lista-produtos {
-        padding-top: 20px;
+        padding-top: 40px;
         display: flex;
         align-items: flex-start;
+        justify-content: space-between;
         width: auto;
         height: auto;
         margin-left: 5%;
@@ -412,26 +464,81 @@ html{
         flex-direction: row;
     }
 
+    main{
+        display: flex;
+        justify-content: space-between;
+    }
+
     .footer_mobile {
         display: none;
     }
 
+    .caixa-lista-produtos{
+        width: 100%;
+    }
+
+    .caixa_produto{
+        width: 303px;
+        border: 1.5px solid white;
+    }
+    .caixa_produto:hover{
+        border: 1.5px solid var(--grey-3);
+        border-radius: 5px;
+    }
+
     .lista_produtos {
         display: flex;
-        gap: 15px;
+        justify-content: space-between;
         flex-wrap: wrap;
-        justify-content: flex-start;
+        width: 90%;
     }
 
-    .caixa_lista_carrinho {
+    .esconder{
         display: flex;
     }
 
-    .lista_carrinho {
-        display: flex;
+    .popup_carrinho{
+        margin-right: 10%;
+        align-items: flex-start;
+        justify-content: center;
+        position: unset;
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        width: 20%;
+        background-color: white;
+        border-radius: 15px;
+        border: 1.5px solid var(--grey-2);
     }
 
-    .caixa_total {
-        display: flex;
+    .botao_fechar_carrinho{
+        display: none;
     }
+
+    .popup_usuario{
+        display: flex;
+        flex-direction: column;
+        margin-top: 5%;
+        margin-right: 2%;
+        width: 250px;
+        position: absolute;
+        left: auto;
+        right: 0;
+        top: 0;
+        bottom: auto;
+        background: white;
+        border: 1.5px solid var(--btn-border-color);
+        border-radius: 15px;
+        padding-bottom: 10px;
+    }
+
+    .caixa_usuario{
+        width: 100%;
+    }
+
+    .menu_esconder{
+        display: none;
+    }
+    
   }

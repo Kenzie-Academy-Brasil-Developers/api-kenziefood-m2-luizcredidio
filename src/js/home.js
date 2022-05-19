@@ -9,7 +9,7 @@ avatar.addEventListener('click',abrirMenuUsuario)
 
 function abrirMenuUsuario(evt){
     const menuUsuario = document.querySelector('.popup_usuario')
-    menuUsuario.classList.remove('esconder')
+    menuUsuario.classList.toggle('menu_esconder')
 }
 
 const btnFechar = document.querySelector('.botao_fechar')
@@ -17,7 +17,7 @@ btnFechar.addEventListener('click', fecharMenuUsuario)
 
 function fecharMenuUsuario(evt){
     const menuUsuario = document.querySelector('.popup_usuario')
-    menuUsuario.classList.add('esconder')
+    menuUsuario.classList.add('menu_esconder')
 }
 
 const botaoCarrinho = document.querySelector('.footer_mobile')
