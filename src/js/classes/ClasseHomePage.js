@@ -1,8 +1,8 @@
+import {removerCarrinho} from "../home.js";
+import {ControleCarrinho} from "../../controller/controleCarrinho.js"
 export default class  Homepage{
     
     static async renderizarNaTela(listaDeProdutos){
-        
-        listaDeProdutos = await listaDeProdutos
 
         let vitrineDeProdutos = document.querySelector('.lista_produtos')
         vitrineDeProdutos.innerHTML = ""
@@ -37,7 +37,7 @@ export default class  Homepage{
             botaoCarrinho.classList.add("icone_add")
             botaoCarrinho.src = "./src/assets/Text.png"
             botaoCarrinho.alt="Botar no carrinho"
-            botaoCarrinho.dataset.id = produto.id
+            divBtnComprar.id = produto.id
             divBtnComprar.appendChild(botaoCarrinho)
 
             caixaDoProduto.appendChild(img)
@@ -90,8 +90,50 @@ export default class  Homepage{
         const listaFiltrada = listaDeProdutos.filter((produto) => {
             return produto.nome.toLowerCase().includes(input);
         });
-        console.log(listaFiltrada)
         this.renderizarNaTela(listaFiltrada)
     }
 
+    static async renderizarNoCarrinho(){
+        let listaDeProdutos = await ControleCarrinho.mostrarCarrinho()
+        const carrinho = document.querySelector(".caixa-produtos")
+        carrinho.innerHTML = ""
+
+        listaDeProdutos.forEach((produto) => {
+            const li = document.createElement('li')
+            li.classList.add("item_carrinho")
+            
+            const img = document.createElement("img")
+            img.classList.add('imagem_carrinho')
+            img.src = produto.products.imagem
+            img.alt = produto.products.nome
+
+            const divDetalhesCar = document.createElement("div")
+            divDetalhesCar.classList.add('detalhes_carrinho')
+
+            const nomeProduto = document.createElement('h3')
+            nomeProduto.innerText = produto.products.nome
+
+            const categoriaProduto = document.createElement('p')
+            categoriaProduto.innerText = produto.products.categoria
+
+            const precoProduto = document.createElement('span')
+            precoProduto.innerText = produto.products.preco
+
+            const imgBtnRemove = document.createElement('img')
+            imgBtnRemove.id = produto.products.id
+            imgBtnRemove.classList.add("botao_remove")
+            imgBtnRemove.src = "./src/assets/apagar-icon.png"
+            imgBtnRemove.alt="Remover"
+            imgBtnRemove.addEventListener('click', (e) => {
+                removerCarrinho(e)
+                this.renderizarNoCarrinho()
+            })
+
+            divDetalhesCar.append(nomeProduto, categoriaProduto, precoProduto)
+            li.append(img, divDetalhesCar, imgBtnRemove)
+            carrinho.appendChild(li)
+        })
+
+    }
+    
 }

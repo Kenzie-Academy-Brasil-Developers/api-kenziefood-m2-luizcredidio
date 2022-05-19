@@ -1,3 +1,5 @@
+import Homepage from "../js/classes/ClasseHomePage.js"
+
 class ControleCarrinho{
     static URL = 'https://api-kenzie-food.herokuapp.com/cart'
 
@@ -19,16 +21,19 @@ class ControleCarrinho{
     static async addCarrinho(dadosProduto){
         const resposta = await fetch(`${this.URL}/add`,{
             method: "POST",
-            headers:{
+            headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${localStorage.getItem("Token")}`
             },
-            body:JSON.stringify(dadosProduto)
+            body: JSON.stringify(dadosProduto)
         })
         .then(resposta => resposta.json())
-        .then(resposta =>resposta)
+        .then(data => {
+            Homepage.renderizarNoCarrinho()
+            return data
+        })
         .catch(err => console.error(err))
-
+        console.log(resposta)
         return resposta
     }
 
@@ -50,7 +55,7 @@ class ControleCarrinho{
     }
 
     static async apagarProduto(id){
-        const resposta = await fetch(`${this.URL}my/products/:${id}`,{
+        const resposta = await fetch(`${this.URL}/remove/${id}`,{
             method: "DELETE",
             headers:{
                 "Content-Type": "application/json",
@@ -58,7 +63,10 @@ class ControleCarrinho{
             }
         })
         .then(resposta => resposta.json())
-        .then(resposta => resposta)
+        .then(resposta => {
+            Homepage.renderizarNoCarrinho()
+            return resposta
+        })
         .catch(err => console.log(err))
 
         return resposta
