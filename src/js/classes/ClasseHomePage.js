@@ -27,20 +27,26 @@ export default class  Homepage{
             let categoria = document.createElement('p')
             categoria.innerText = produto.categoria
 
+            let divPrecoBtn = document.createElement('div')
+            divPrecoBtn.classList.add("valores_produto")
             let preco = document.createElement('span')
             preco.innerText =`R$ ${produto.preco}`
-
-            let botaoCarrinho = document.createElement('p')
-            botaoCarrinho.classList.add('botaoCarrinho')
+            let divBtnComprar = document.createElement('div')
+            divBtnComprar.classList.add("btn_add")
+            let botaoCarrinho = document.createElement('img')
+            botaoCarrinho.classList.add("icone_add")
+            botaoCarrinho.src = "./src/assets/Text.png"
+            botaoCarrinho.alt="Botar no carrinho"
             botaoCarrinho.dataset.id = produto.id
-            
+            divBtnComprar.appendChild(botaoCarrinho)
 
             caixaDoProduto.appendChild(img)
             divDetalhesDoProduto.appendChild(nomeProduto)
             divDetalhesDoProduto.appendChild(descricaoProduto)
             divDetalhesDoProduto.appendChild(categoria)
-            divDetalhesDoProduto.appendChild(preco)
-            divDetalhesDoProduto.appendChild(botaoCarrinho)
+            divPrecoBtn.appendChild(preco)
+            divPrecoBtn.appendChild(divBtnComprar)
+            divDetalhesDoProduto.appendChild(divPrecoBtn)
             caixaDoProduto.appendChild(divDetalhesDoProduto)
 
             vitrineDeProdutos.appendChild(caixaDoProduto)
