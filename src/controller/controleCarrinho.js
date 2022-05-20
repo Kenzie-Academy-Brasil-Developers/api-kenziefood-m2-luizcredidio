@@ -1,5 +1,5 @@
 import Homepage from "../js/classes/ClasseHomePage.js"
-
+import atualizaQuantidade from "../js/home.js"
 class ControleCarrinho{
     static URL = 'https://api-kenzie-food.herokuapp.com/cart'
 
@@ -13,7 +13,10 @@ class ControleCarrinho{
             }
         })
         .then(resposta => resposta.json())
-        .then(resposta => resposta)
+        .then(resposta => {
+            atualizaQuantidade()
+            return resposta
+        })
         .catch(err => console.error(err))
     }
 
@@ -30,6 +33,7 @@ class ControleCarrinho{
         .then(resposta => resposta.json())
         .then(data => {
             Homepage.renderizarNoCarrinho()
+            atualizaQuantidade()
             return data
         })
         .catch(err => console.error(err))
@@ -46,6 +50,7 @@ class ControleCarrinho{
         })
         .then(resposta => resposta)
         .then(resposta => {
+            atualizaQuantidade()
             Homepage.renderizarNoCarrinho()
             return resposta
         })

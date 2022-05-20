@@ -116,10 +116,13 @@ async function removerCarrinho(e){
     await ControleCarrinho.apagarCarrinho(id)
 }
 
-function atualizaQuantidade(){
-    const quantidade = document.querySelector('# quantidade-total')
-    quantidade.innerText = listaCarrinho.length
+export default function atualizaQuantidade(){
+    const valorTotal = document.querySelector('#quantidade-total')
+    const quantidade = document.querySelector('#valor-total')
+    let valor = localStorage.getItem('@total')
+    let valTotal = localStorage.getItem('@quantidade')
+    quantidade.innerText = valor
+    valorTotal.innerText = valTotal
 }
-
 
 export { removerCarrinho}
