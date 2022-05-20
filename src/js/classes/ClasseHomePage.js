@@ -1,10 +1,13 @@
 import {removerCarrinho} from "../home.js";
 import {ControleCarrinho} from "../../controller/controleCarrinho.js"
+import atualizaQuantidade from "../home.js"
+
 export default class  Homepage{
+    
     
 
     static async renderizarNaTela(listaDeProdutos){
-
+        
         let vitrineDeProdutos = document.querySelector('.lista_produtos')
         vitrineDeProdutos.innerHTML = ""
         listaDeProdutos.forEach(produto => {
@@ -52,6 +55,7 @@ export default class  Homepage{
 
             vitrineDeProdutos.appendChild(caixaDoProduto)
         });
+        
     }
 
     static async filtrarPanificadora(listaDeProdutos){
@@ -97,9 +101,16 @@ export default class  Homepage{
     static async renderizarNoCarrinho(){
         let listaDeProdutos = await ControleCarrinho.mostrarCarrinho()
         const carrinho = document.querySelector(".caixa-produtos")
-        carrinho.innerHTML = ""
-
+        const quantidade = document.querySelector('.quantidade-total')
+        carrinho.innerHTML = "" 
+        let array = 0
+        let total = 0
+        
         listaDeProdutos.forEach((produto) => {
+            total += produto.quantity
+            array += (produto.products.preco * produto.quantity)
+            localStorage.setItem('@quantidade', total)
+            localStorage.setItem('@total', array)
             const li = document.createElement('li')
             li.classList.add("item_carrinho")
             
@@ -126,15 +137,24 @@ export default class  Homepage{
             imgBtnRemove.src = "./src/assets/apagar-icon.png"
             imgBtnRemove.alt="Remover"
             imgBtnRemove.addEventListener('click', (e) => {
+                total -= produto.quantity
+                array -= (produto.products.preco * produto.quantity)
+                if(total == 0){
+                    const valorTotal = document.querySelector('#quantidade-total')
+                    const quantidade = document.querySelector('#valor-total')
+                    quantidade.innerText = 0
+                    valorTotal.innerText = 0
+                    localStorage.setItem('@quantidade', total)
+                    localStorage.setItem('@total', array)
+                }
                 removerCarrinho(e)
-                this.renderizarNoCarrinho()
             })
 
             divDetalhesCar.append(nomeProduto, categoriaProduto, precoProduto)
             li.append(img, divDetalhesCar, imgBtnRemove)
             carrinho.appendChild(li)
         })
-
-    }
+        atualizaQuantidade()
+    }   
     
 }
