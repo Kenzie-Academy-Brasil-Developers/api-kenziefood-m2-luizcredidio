@@ -41,7 +41,6 @@ adcFuncaoFecharModal()
 function cadastrarProduto(event){
     event.preventDefault()
     const dados = recebeDadosDoForm(event)
-    console.log(dados)
     ControleProdutos.criarProduto(dados)
 }
 
@@ -52,7 +51,7 @@ function recebeDadosDoForm(event) {
     const values = {}
     
     formItens.forEach((item) => {
-        if (item.name != "") {
+        if (item.value != "") {
             values[item.name] = item.value
         }
     })
@@ -77,9 +76,12 @@ function fecharModalBtnNao(){
     })
 }
 fecharModalBtnNao()
+let idExclusao
+let idEditar
 
 function renderizarProdutosPrivados(listaDeProdutos){
-    let tabelaDeProdutos = document.getElementById('tabela-de-produtos')
+    let tabelaDeProdutos = document.querySelector('.tabela-de-produtos')
+    tabelaDeProdutos.innerHTML = ''
 
         listaDeProdutos.forEach(produto =>{
             let linhaDeProduto = document.createElement('tr')
@@ -113,19 +115,23 @@ function renderizarProdutosPrivados(listaDeProdutos){
                 divIcones.classList.add('icones-td')
                 let iconEditar = document.createElement('img')
                     iconEditar.setAttribute('class','editar-icon')
+                    iconEditar.id = produto.id
                     iconEditar.src = "/src/assets/editar-icon.png"
                     iconEditar.addEventListener('click', event=>{
                         event.preventDefault()
+                        idEditar = event.currentTarget.id
                         const containerModalEditar = document.querySelector('.container-editar')
                         containerModalEditar.style.display = 'flex'
                     })
 
                 let iconApagar = document.createElement('img')
                     iconApagar.setAttribute('class', 'apagar-icon')
+                    iconApagar.id = produto.id
                     iconApagar.src = "/src/assets/apagar-icon.png"
                     iconApagar.addEventListener('click', event =>{
 
                         event.preventDefault()
+                        idExclusao = event.currentTarget.id
                         const containerModalDeletar = document.querySelector('.container-deletar')
                         containerModalDeletar.style.display = 'flex'
                     })
@@ -139,9 +145,8 @@ function renderizarProdutosPrivados(listaDeProdutos){
         })
 }
 
-renderizarProdutosPrivados(await ControleProdutos.mostrarProdutosPrivados())
-
-console.log(await ControleProdutos.mostrarProdutosPrivados())
+const listaDeProdutos = await ControleProdutos.mostrarProdutosPrivados()
+renderizarProdutosPrivados(listaDeProdutos)
 
 //class="btn-editar-produto"
 const btnEditarProduto = document.querySelector("#form-editar")
@@ -149,6 +154,123 @@ btnEditarProduto.addEventListener('submit', editarProduto)
 
 function editarProduto(event){
     event.preventDefault()
+
     const dados = recebeDadosDoForm(event)
-    console.log(dados)
+    ControleProdutos.editarProduto(dados,idEditar)
+}
+
+const btnExcluir = document.querySelector('#excluir')
+btnExcluir.addEventListener('click', excluirProduto)
+
+function excluirProduto(){
+    ControleProdutos.apagarProduto(idExclusao)
+}
+
+const inputPesquisa = document.querySelector('.campo_pesquisa')
+inputPesquisa.onkeyup =  function pesquisarAoDigitar(){
+    let input = inputPesquisa.value
+    filtrarPesquisa(input, listaDeProdutos)
+}
+
+async function filtrarPesquisa(input, listaDeProdutos){
+    input = input.toLowerCase()
+    listaDeProdutos = await listaDeProdutos
+
+    const listaFiltrada = listaDeProdutos.filter((produto) => {
+        return produto.nome.toLowerCase().includes(input);
+    });
+    renderizarProdutosPrivados(listaFiltrada)
+}
+
+function filtrarPanificadora(listaDeProdutos){
+
+    const listaPanificadora = listaDeProdutos.filter((produto) => {
+        return produto.categoria === "Panificadora";
+    });
+    
+    renderizarProdutosPrivados(listaPanificadora)
+}
+
+function filtrarFrutas(listaDeProdutos){
+
+    const listaFrutas = listaDeProdutos.filter((produto) => {
+        return produto.categoria === "Frutas";
+    });
+    
+    renderizarProdutosPrivados(listaFrutas)
+}
+
+function filtrarBebidas(listaDeProdutos){
+
+    const listaBebidas = listaDeProdutos.filter((produto) => {
+        return produto.categoria === "Bebidas";
+    });
+    
+    renderizarProdutosPrivados(listaBebidas)
+}
+
+const btnTodos = document.querySelector('.todos')
+btnTodos.addEventListener('click', (e) => {
+    let btnClicado = e.currentTarget
+    e.preventDefault()
+    removeAtivo()
+    btnClicado.classList.add('ativa')
+    renderizarProdutosPrivados(listaDeProdutos)
+})
+
+const btnPanificadora = document.querySelector('.panificadora')
+btnPanificadora.addEventListener('click', (e) => {
+    let btnClicado = e.currentTarget
+    e.preventDefault()
+    removeAtivo()
+    btnClicado.classList.add('ativa')
+    filtrarPanificadora(listaDeProdutos)
+})
+
+const btnFrutas = document.querySelector('.frutas')
+btnFrutas.addEventListener('click', (e) => {
+    let btnClicado = e.currentTarget
+    e.preventDefault()
+    removeAtivo()
+    btnClicado.classList.add('ativa')
+    filtrarFrutas(listaDeProdutos)
+})
+
+const btnBebidas = document.querySelector('.bebidas')
+btnBebidas.addEventListener('click', (e) => {
+    let btnClicado = e.currentTarget
+    e.preventDefault()
+    removeAtivo()
+    btnClicado.classList.add('ativa')
+    filtrarBebidas(listaDeProdutos)
+})
+
+function removeAtivo(){
+    const arrayFiltros = document.querySelectorAll('.item-filtro');
+    for(let i = 0; i < arrayFiltros.length; i++){
+        arrayFiltros[i].classList.remove('ativa');
+    }
+}
+
+const avatar = document.querySelector('#avatar')
+avatar.addEventListener('click',abrirMenuUsuario)
+
+function abrirMenuUsuario(evt){
+    const menuUsuario = document.querySelector('.popup_usuario')
+    menuUsuario.classList.toggle('menu_esconder')
+}
+
+const btnFechar = document.querySelector('.botao_fechar')
+btnFechar.addEventListener('click', fecharMenuUsuario)
+
+function fecharMenuUsuario(evt){
+    const menuUsuario = document.querySelector('.popup_usuario')
+    menuUsuario.classList.add('menu_esconder')
+}
+
+const logoff = document.querySelector('.logoff')
+logoff.addEventListener('click',clearLocalstorage)
+
+function clearLocalstorage(){
+    localStorage.clear()
 }
