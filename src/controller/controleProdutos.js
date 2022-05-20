@@ -39,14 +39,14 @@ class ControleProdutos{
             body:JSON.stringify(dadosProduto)
         })
         .then(resposta => resposta.json())
-        .then(resposta => resposta)
+        .then(resposta => console.log(resposta))
         .catch(err => console.error(err))
         return resposta
     }
 
     static async editarProduto(dadosProduto, id) {
 
-         const resposta = await fetch(`${this.URL}my/products/:${id}`, {
+         const resposta = await fetch(`${this.URL}my/products/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -55,21 +55,21 @@ class ControleProdutos{
             body: JSON.stringify(dadosProduto)
         })
         .then(resposta => resposta.json())
-        .then(resposta => resposta)
+        .then(resposta => console.log(resposta))
         .catch(err => console.error(err))
 
         return resposta
     }
 
     static async apagarProduto(id){
-        const resposta = await fetch(`${this.URL}my/products/:${id}`,{
+        const resposta = await fetch(`${this.URL}my/products/${id}`,{
             method: "DELETE",
             headers:{
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${localStorage.getItem("Token")}`
             }
         })
-        .then(resposta => resposta.json())
+        .then(resposta => resposta)
         .then(resposta => resposta)
         .catch(err => console.error(err))
 
