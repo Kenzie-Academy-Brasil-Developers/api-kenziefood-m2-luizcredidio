@@ -1,169 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;500&family=Noto+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./src/css/reset.css">
-    <link rel="stylesheet" href="./src/css/home.css">
-
-    <title>Página inicial</title>
-
-</head>
-
-<body>
-    <!--Cabeçalho e navegacao-->
-
-    <header class="header">
-
-        <h1 class="logo">Kenzie <span>Food</span></h1>
-        <div class="pesquizar-por-nome">
-            <!-- barra pesquizar -->
-            <input type="text" placeholder="Pesquisar por produto" class="campo_pesquisa" id="texto-busca">
-        </div>
-        <img src="/src/assets/avatar-placeholder.png" id="avatar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src//css/login.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;500&family=Noto+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <title>Login Kenzie Food</title>
+  </head>
+  <body>
+    <header>
+      <h1>Kenzie <span>Food</span></h1>
     </header>
-
-    <section class="menu-navegacao">
-        <!-- menu de navegacao -->
-        <nav class="barra-navegacao">
-            <ul id="lista-navegacao">
-                <li class="icone todos" data-tag="todos" class="lista-navegacao ativa">Todos</li>
-                <li class="icone panificadora" data-tag="panificadora" class="lista-navegacao"><img src="/src/assets/panificadora.png"><span>Panificadora</span></li>
-                <li class="icone frutas" data-tag="frutas" class="lista-navegacao"><img src="/src/assets/frutas.png"><span>Frutas</span></li>
-                <li class="icone bebidas" data-tag="bebidas" class="lista-navegacao"><img src="/src/assets/bebidas.png"><span>Bebidas</span></li>
-            </ul>
-        </nav>
-    </section>
-    <!-- popup do usuario(quando clicar na imagem remover o esconder) -->
-    <section class="popup_usuario menu_esconder">
-        <div class="caixa_usuario">
-            <div class="menu_usuario">
-                <h1>Menu Usuario</h1>
-                <img class="botao_fechar" src="./src/assets/X.png" alt="">
-            </div>
-            <a href="./src/pages/login.html">Login</a>
-            <a href="./src/pages/cadastro.html">Cadastro</a>
-            <a class="usuario_nao_logado" href="./src/pages/dashboard.html">Dashboard</a>
-
-        </div>
-        
-    </section>
-
     <main>
+      <section>
+        <h1>Log<span>in</span></h1>
+        <form action="" id="form_login">
+          <label for="email">Email</label>
+          <input type="email" name="email" placeholder="Email" class="field" />
 
-        <section class="caixa-lista-produtos" id="lista-produtos">
-            <ul class="lista_produtos">
-                  <li class="caixa_produto">
-                    <img class="img_produto" src="./src/assets/Frame 5.png" alt="">
-                    <div class="detalhes_produto">
-                        <h3>Panqueca de banana com aveia</h3>
-                        <p>Esta receita serve muito bem 2 pessoas, deixa a gente bem satisfeito, se não tiver outra opção de café. Se tiver mais comida, como pães e frutas.</p>
-                        <p class="categoria">Panificadora</p>
-                        <div class="valores_produto">
-                            <span>R$ 20,00</span>  
-                            <div class="btn_add"><img class="icone_add" src="./src/assets/Text.png" alt=""></div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </section>
+          <label for="senha">Senha</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Senha"
+            class="field"
+          />
 
+          <input type="submit" value="Enviar" id="btn_login" />
+        </form>
+      </section>
 
-        <!-- popup carrinho de compras mobile -->
-        <section class="popup_carrinho esconder">
-            <div id="carrinho" class="caixa-carrinho">
-                <div class="carrinho_titlulo">
-                    
-                    <h1><img src="./src/assets/.png" alt="">Carrinho</h1>
-                    <img class="botao_fechar_carrinho" src="./src/assets/X.png" alt="">
-
-                </div>
-                <ul class="caixa-produtos">
-                    <!-- produtos no carrinho -->
-                    <!-- <li class="item_carrinho">
-                        <img class="imagem_carrinho" src="./src/assets/unsplash_eeqbbemH9-c.png" alt="">
-                        <div class="detalhes_carrinho">
-                            <h3>Panqueca de banana... </h3>
-                            <p>Panificadora</p>
-                            <span>R$ 20,00</span>
-                        </div>
-                        <img class="botao_remove" src="./src/assets/apagar-icon.png" alt="">
-                    </li>
-                    <li class="item_carrinho">
-                        <img class="imagem_carrinho" src="./src/assets/unsplash_eeqbbemH9-c.png" alt="">
-                        <div class="detalhes_carrinho">
-                            <h3>Panqueca de banana... </h3>
-                            <p>Panificadora</p>
-                            <span>R$ 20,00</span>                            
-                        </div>
-                        <img class="botao_remove" src="./src/assets/apagar-icon.png" alt="">
-                    </li>
-                    <li class="item_carrinho">
-                        <img class="imagem_carrinho" src="./src/assets/unsplash_eeqbbemH9-c.png" alt="">
-                        <div class="detalhes_carrinho">
-                            <h3>Panqueca de banana... </h3>
-                            <p>Panificadora</p>
-                            <span>R$ 20,00</span>                            
-                        </div>
-                        <img class="botao_remove" src="./src/assets/apagar-icon.png" alt="">
-                    </li>
-                    <li class="item_carrinho">
-                        <img class="imagem_carrinho" src="./src/assets/unsplash_eeqbbemH9-c.png" alt="">
-                        <div class="detalhes_carrinho">
-                            <h3>Panqueca de banana... </h3>
-                            <p>Panificadora</p>
-                            <span>R$ 20,00</span>                            
-                        </div>
-                        <img class="botao_remove" src="./src/assets/apagar-icon.png" alt="">
-                    </li>
-                    <li class="item_carrinho">
-                        <img class="imagem_carrinho" src="./src/assets/unsplash_eeqbbemH9-c.png" alt="">
-                        <div class="detalhes_carrinho">
-                            <h3>Panqueca de banana... </h3>
-                            <p>Panificadora</p>
-                            <span>R$ 20,00</span>                            
-                        </div>
-                        <img class="botao_remove" src="./src/assets/apagar-icon.png" alt="">
-                    </li>
-                    <li class="item_carrinho">
-                        <img class="imagem_carrinho" src="./src/assets/unsplash_eeqbbemH9-c.png" alt="">
-                        <div class="detalhes_carrinho">
-                            <h3>Panqueca de banana... </h3>
-                            <p>Panificadora</p>
-                            <span>R$ 20,00</span>                            
-                        </div>
-                        <img class="botao_remove" src="./src/assets/apagar-icon.png" alt="">
-                    </li>
-                     -->
-    
-                </ul>
-    
-                <div class="caixa-quantidade-total">
-                    <!-- quantidade de itens no carrinho -->
-                    <p class="quantidade">Quantidade: </p>
-                    <span id="quantidade-total">0</span>
-                </div>
-    
-                <div class="caixa-valor-total">
-                    <!-- valor total a ser pago -->
-                    <p class="total">Total: </p>
-                    <span id="valor-total">R$00.00</span>
-                </div>
-            </div>
-        </section>
+      <section>
+        <p>Não tem cadastro ainda?</p>
+        <p>Clique aqui e se cadastre!</p>
+        <a href="./src//pages/cadastro.html">Cadastre-se</a>
+      </section>
     </main>
-    <footer class="footer_mobile">
-        <h1><img src="./src/assets/.png" alt=""> Carrinho</h1>
+    <footer>
+      <div class="caixa_erro hide">
+        <p class="texto_erro"></p>
+      </div>
     </footer>
 
-<script type="module" src="./src/js/home.js"></script>
-
-</body>
-
+    <script type="module" src="./src/controller/controleUsuario.js"></script>
+    <script type="module" src="./src/js/login.js"></script>
+  </body>
 </html>

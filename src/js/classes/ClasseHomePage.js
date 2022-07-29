@@ -39,7 +39,7 @@ export default class  Homepage{
             divBtnComprar.classList.add("btn_add")
             let botaoCarrinho = document.createElement('img')
             botaoCarrinho.classList.add("icone_add")
-            botaoCarrinho.src = "./src/assets/Text.png"
+            botaoCarrinho.src = "../assets/Text.png"
             botaoCarrinho.alt="Botar no carrinho"
             divBtnComprar.id = produto.id
             divBtnComprar.appendChild(botaoCarrinho)
@@ -134,7 +134,7 @@ export default class  Homepage{
             const imgBtnRemove = document.createElement('img')
             imgBtnRemove.id = produto.products.id
             imgBtnRemove.classList.add("botao_remove")
-            imgBtnRemove.src = "./src/assets/apagar-icon.png"
+            imgBtnRemove.src = "../assets/apagar-icon.png"
             imgBtnRemove.alt="Remover"
             imgBtnRemove.addEventListener('click', (e) => {
                 total -= produto.quantity
